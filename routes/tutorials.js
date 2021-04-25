@@ -1,8 +1,13 @@
 const express = require("express")
 const router = express.Router();
+const tutorialInfo = require("../tutorials/tutorial-info.js")
+const fs = require("fs")
 
-router.get("/tutorial/:section/:course", (req,res) => {
-  res.send(`You tried to visit the tutorial for the ${req.params.section} section with the ${req.params.res} course`)
+BACKEND_URL = "https://WebMasteryServer.bharadwajd.repl.co"
+
+router.get("/:unit/:file", (req,res) => {
+  res.sendFile(`/home/runner/WebMasteryServer/tutorials/${req.params.unit}/${req.params.file}`)
 })
 
 module.exports = router
+
